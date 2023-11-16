@@ -2,6 +2,7 @@
 import React from 'react';
 import { ScrollView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native'; // Import useNavigation
 
 const diningOptions = [
   { id: 1, name: '57 north at Ikenberry', servingTime: 'Serving till 10PM' },
@@ -11,9 +12,18 @@ const diningOptions = [
 ];
 
 const Home = () => {
+  
+    const navigation = useNavigation(); // Hook for navigation
+  
+    const navigateToProfile = () => {
+      navigation.navigate('Profile'); // Navigate to Profile screen when icon is pressed
+    };
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+      <TouchableOpacity onPress={navigateToProfile} style={styles.profileButton}>
+          <Icon name="account-circle-outline" size={30} style={styles.profileIcon} />
+        </TouchableOpacity>
         <Text style={styles.headerTitle}>Residence Hall Dining</Text>
         <Text style={styles.headerDate}>Friday, October 10</Text>
       </View>
@@ -41,6 +51,11 @@ const Home = () => {
 };
 
 const styles = StyleSheet.create({
+  profileButton: {
+    position: 'absolute',
+    left: 20,
+    top: 20,
+  },
   container: {
     flex: 1,
   },
