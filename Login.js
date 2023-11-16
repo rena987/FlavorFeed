@@ -7,11 +7,15 @@ const LoginScreen = ({ navigation }) => {
   const handleLoginPress = () => {
     // TODO: Validate credentials
     navigation.navigate('Home'); // Navigate to the Home screen after pressing the Login button
+    navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home' }],
+      });
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>FlavorFeed</Text>
       <TextInput style={styles.input} placeholder="Username" />
       <TextInput style={styles.input} placeholder="Password" secureTextEntry />
       <TouchableOpacity style={styles.loginButton} onPress={handleLoginPress}>
