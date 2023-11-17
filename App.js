@@ -6,6 +6,7 @@ import Home from './Home';
 import Login from './Login'
 import ProfileScreen from './ProfileScreen'
 import Ikenberry57Screen from './Ikenberry57Screen';
+import ReviewsScreen from './reviews';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,8 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="Ikenberry" component={Ikenberry57Screen} />
+        <Stack.Screen name="Reviews" component={ReviewsScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

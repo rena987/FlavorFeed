@@ -1,14 +1,20 @@
-// IkenberryScreen.js
+// Ikenberry57Screen.js
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native'; 
 
 const Ikenberry57Screen = () => {
-  const [selectedTab, setSelectedTab] = useState('Breakfast');
-
-  const handleTabPress = (tab) => {
-    setSelectedTab(tab);
-  };
+    const [selectedTab, setSelectedTab] = useState('Breakfast');
+    const navigation = useNavigation();
+  
+    const handleTabPress = (tab) => {
+      setSelectedTab(tab);
+    };
+  
+    const navigateToReviews = () => {
+      navigation.navigate('Reviews');
+    };
 
   // Function to get the current date in the "Month Day, Year" format
   const getCurrentDate = () => {
@@ -32,8 +38,16 @@ const Ikenberry57Screen = () => {
       <Image source={require('C:/Users/isabe/465_project/57.jpg')} style={styles.image} />
 
       <View style={styles.contentContainer}>
-        {/* Title */}
-        <Text style={styles.title}>Ikenberry 57 North</Text>
+        {/* Title with Check-In Box */}
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Ikenberry 57 North</Text>
+          
+          {/* Check-In Box */}
+          <TouchableOpacity style={styles.checkInBox} onPress={() => console.log('Check-in')}>
+            {/* You can customize the check-in box content here */}
+          </TouchableOpacity>
+          <Text style={styles.checkInBoxText}>Check In</Text>
+        </View>
 
         {/* Wait Time */}
         <Text style={styles.waitTime}>Wait Time: 5 minutes</Text>
@@ -63,16 +77,11 @@ const Ikenberry57Screen = () => {
             <Text style={styles.reviewButtonText}>Add Review</Text>
           </TouchableOpacity>
 
-          {/* Check-In Box */}
-          <View style={styles.checkInContainer}>
-            <TouchableOpacity
-              style={styles.checkInBox}
-              onPress={() => console.log('Check-in')}
-            >
-              {/* You can customize the check-in box content here */}
-            </TouchableOpacity>
-            <Text style={styles.checkInBoxText}>Check In</Text>
-          </View>
+          {/* Question Mark Icon for "See Reviews" */}
+        <TouchableOpacity style={styles.seeReviewsIcon} onPress={navigateToReviews}>
+          <Icon name="help-circle" size={30} color="black" />
+          <Text style={styles.seeReviewsText}>See Reviews</Text>
+        </TouchableOpacity>
         </View>
 
         {/* Horizontal Line */}
@@ -154,7 +163,7 @@ const Ikenberry57Screen = () => {
           </View>
 
           <View style={styles.menuItem}>
-            <Text style={styles.menuItemText}>Hot Dog</Text>
+            <Text style={styles.menuItemText}>Veggie Dog (V)</Text>
             <TouchableOpacity onPress={() => console.log('Favorite Hot Dog')}>
               <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
             </TouchableOpacity>
@@ -192,11 +201,39 @@ const styles = StyleSheet.create({
     width: '80%',
     alignItems: 'flex-start',
   },
+  titleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginVertical: 10,
     marginLeft: -20,
+  },
+  checkInContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    position: 'absolute',
+    right: 30, 
+    top: 10,
+  },
+  checkInBox: {
+    width: 30,
+    height: 30,
+    borderWidth: 1,
+    borderColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: -5,
+    marginLeft: 100,
+  },
+  checkInBoxText: {
+    fontSize: 12,
+    color: 'black',
+    marginBottom: -60,
+    marginLeft: -40,
   },
   waitTime: {
     fontSize: 14,
@@ -226,7 +263,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   mapText: {
-    fontSize: 12,
+    fontSize: 14,
     color: 'black',
   },
   reviewButton: {
@@ -238,20 +275,18 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'black',
   },
-  checkInContainer: {
+  seeReviewsButton: {
+    flexDirection: 'column',
     alignItems: 'center',
+    backgroundColor: 'transparent',
   },
-  checkInBox: {
-    width: 30,
-    height: 30,
-    borderWidth: 1,
-    borderColor: 'black',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  checkInBoxText: {
+  seeReviewsText: {
     fontSize: 14,
     color: 'black',
+  },
+  checkInContainer: {
+    alignItems: 'center',
+    marginTop: -30,
   },
   tabsAndFoodBar: {
     width: '100%',
@@ -324,8 +359,8 @@ const styles = StyleSheet.create({
   dateTitleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center', 
-    marginHorizontal: 20, 
+    justifyContent: 'center',
+    marginHorizontal: 20,
   },
   dateTitle: {
     fontSize: 15,

@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native'; // Import useNavigation
 
 const diningOptions = [
-  { id: 1, name: '57 north at Ikenberry', servingTime: 'Serving till 10PM' },
+  { id: 1, name: '57 North at Ikenberry', servingTime: 'Serving till 10PM' },
   { id: 2, name: 'Caffeinator at Ikenberry', servingTime: 'Serving till 10PM' },
   { id: 3, name: 'Field of Greens at Lincoln/Allen', servingTime: 'Serving till 10PM' },
   { id: 4, name: 'ISR Dining Centre', servingTime: 'Serving till 10PM' },
@@ -30,7 +30,7 @@ const Home = () => {
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Residence Hall Dining</Text>
           <View style={styles.secondPartHeader}>
-            <Text style={styles.headerDate}>Friday, October 10</Text>
+            <Text style={styles.headerDate}>Friday, November 17</Text>
             <View style={styles.rightPartOfSecondHeader}>
               <TouchableOpacity onPress={navigateToProfile} style={styles.profileButton}>
                 <Icon name="account-circle-outline" size={30} style={styles.profileIcon} />
@@ -48,7 +48,7 @@ const Home = () => {
                 key={option.id}
                 style={styles.listItem}
                 onPress={
-                  option.name === '57 north at Ikenberry'
+                  option.name === '57 North at Ikenberry'
                     ? navigateToIkenberryScreen
                     : null
                 }
