@@ -14,10 +14,12 @@ const ReviewsScreen = () => {
 
   // Function to render star icons based on rating
   const renderRatingStars = (rating) => {
-    const filledStars = Array.from({ length: rating }, (_, index) => (
+    const filledStarsCount = Math.min(rating, 5);
+    const filledStars = Array.from({ length: filledStarsCount }, (_, index) => (
       <Icon key={`filled-${index}`} name="star" size={20} color="gold" style={styles.starIcon} />
     ));
-    const emptyStars = Array.from({ length: 5 - rating }, (_, index) => (
+    const emptyStarsCount = Math.max(5 - filledStarsCount, 0);
+    const emptyStars = Array.from({ length: emptyStarsCount }, (_, index) => (
       <Icon key={`empty-${index}`} name="star-outline" size={20} color="gold" style={styles.starIcon} />
     ));
     return [...filledStars, ...emptyStars];
