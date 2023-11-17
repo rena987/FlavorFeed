@@ -72,11 +72,7 @@ const Home = () => {
           ))}
         </ScrollView>
       </View>
-      <View style={styles.footer}>
-        <Icon name="home-outline" size={24} />
-        <Icon name="chart-timeline-variant" size={24} />
-        <Icon name="heart-outline" size={24} />
-      </View>
+
     </View>
   );
 };
