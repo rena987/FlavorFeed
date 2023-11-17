@@ -6,7 +6,8 @@ import Home from './Home';
 import Login from './Login';
 import ProfileScreen from './ProfileScreen';
 import PostLoginTabs from './PostLoginTabs';
-import FavoritesScreen from './FavoritesScreen';
+import CaffinatorScreen from './Caffinator';
+import Ikenberry57Screen from './Ikenberry57Screen';
 
 const Stack = createStackNavigator();
 

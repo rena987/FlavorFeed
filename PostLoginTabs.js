@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native'; // Import useNavigatio
 
 import Home from './Home';
 import FavoritesScreen from './FavoritesScreen';
+import ActivityScreen from './ActivityScreen';
 
 const PostLoginTabs = () => {
     const navigation = useNavigation();
@@ -36,7 +37,21 @@ const PostLoginTabs = () => {
             })}
         >
             <Tab.Screen name="Home" component={Home} screenOptions={{ headerShown: false }}/>
-            <Tab.Screen name="Activity" component={Home} />
+            <Tab.Screen 
+                name="Activity" 
+                component={ActivityScreen}
+                options={{
+                    headerLeft: () => (
+                        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={{ marginLeft: 10 }}>
+                        <Ionicons name="arrow-back" size={24} color="black" />
+                        </TouchableOpacity>
+                    ),
+                    headerTitle: "Your Activity",
+                    headerTitleAlign: 'center', // Align the header title to the center
+                    headerStyle: {
+                        backgroundColor: '#ddd', // Set your desired color for the header background
+                    },
+                }} />
             <Tab.Screen 
                 name="Favorites" 
                 component={FavoritesScreen}

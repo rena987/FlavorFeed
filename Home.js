@@ -21,6 +21,10 @@ const Home = () => {
     const navigateToProfile = () => {
       navigation.navigate('Profile'); // Navigate to Profile screen when icon is pressed
     };
+
+    const navigateToIkenberryScreen = () => {
+      navigation.navigate('57 North');
+    };
   return (
     <View style={styles.container}>
       
@@ -44,7 +48,9 @@ const Home = () => {
       <View style={styles.listOfDiningHalls}>
         <ScrollView style={styles.scrollView}>
             {diningOptions.map((option) => (
-            <TouchableOpacity key={option.id} style={styles.listItem}>
+            <TouchableOpacity 
+              key={option.id} 
+              style={styles.listItem}>
                 <Icon name="silverware" size={24} style={styles.listIcon} />
                 <View style={styles.listTextContainer}>
                   <Text style={styles.listItemTitle}>{option.name}</Text>
