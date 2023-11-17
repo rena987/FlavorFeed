@@ -1,10 +1,12 @@
 // FavoritesScreen.js
-import React,  { useState } from 'react';
+import React,  { useState, useContext } from 'react';
 import {Modal, View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
+import FavoritesContext from './FavoritesContext';
 
-const favoritesData = [{
+
+/*favorites = [{
   id: '1',
   title: 'Orange Tempura Chicken',
   rating: '10.0',
@@ -34,55 +36,7 @@ const favoritesData = [{
   rating: '8.9',
   description: '@ PAR Dining Hall\nThursday, Dinner',
 },
-{
-  id: '6',
-  title: 'Chicken Parmesan',
-  rating: '8.9',
-  description: '@ PAR Dining Hall\nThursday, Dinner',
-},
-{
-  id: '7',
-  title: 'Chicken Parmesan',
-  rating: '8.9',
-  description: '@ PAR Dining Hall\nThursday, Dinner',
-},
-{
-  id: '8',
-  title: 'Chicken Parmesan',
-  rating: '8.9',
-  description: '@ PAR Dining Hall\nThursday, Dinner',
-},
-{
-  id: '9',
-  title: 'Chicken Parmesan',
-  rating: '8.9',
-  description: '@ PAR Dining Hall\nThursday, Dinner',
-},
-{
-  id: '10',
-  title: 'Chicken Parmesan',
-  rating: '8.9',
-  description: '@ PAR Dining Hall\nThursday, Dinner',
-},
-{
-  id: '11',
-  title: 'Chicken Parmesan',
-  rating: '8.9',
-  description: '@ PAR Dining Hall\nThursday, Dinner',
-},
-{
-  id: '12',
-  title: 'Chicken Parmesan',
-  rating: '8.9',
-  description: '@ PAR Dining Hall\nThursday, Dinner',
-},
-{
-  id: '13',
-  title: 'Chicken Parmesan',
-  rating: '8.9',
-  description: '@ PAR Dining Hall\nThursday, Dinner',
-},
-];
+];*/
 
 const Item = ({ id, title, rating }) => (
   <View style={styles.item}>
@@ -96,6 +50,7 @@ const Item = ({ id, title, rating }) => (
 );
 
 const FavoritesScreen = () => {
+  const { favorites } = useContext(FavoritesContext);
 
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
@@ -113,8 +68,8 @@ const FavoritesScreen = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={favoritesData}
-        renderItem={({ item }) => <Item id={item.id} title={item.title} rating={item.rating} />}
+        data={favorites}
+        renderItem={({ item }) => <Item id={item.id} title={item.title} />}
         keyExtractor={item => item.id}
         style={styles.favoritesScreen}
       />
