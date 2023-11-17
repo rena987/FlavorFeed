@@ -5,39 +5,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
 import FavoritesContext from './FavoritesContext';
 
-
-/*favorites = [{
-  id: '1',
-  title: 'Orange Tempura Chicken',
-  rating: '10.0',
-  description: '@ Illinois Street Residence\nThursday, Lunch',
-},
-{
-  id: '2',
-  title: 'Waffle and Smoothie Bar',
-  rating: '9.5',
-  description: '@ Field of Greens\nTuesday, Breakfast',
-},
-{
-  id: '3',
-  title: 'Halal Italian Beef',
-  rating: '9.4',
-  description: '@ Ikenberry Dining Hall\nWednesday, Dinner',
-},
-{
-  id: '4',
-  title: 'Sky Garden (Stir-fry)',
-  rating: '9.1',
-  description: '@ PAR Dining Hall\nEveryday Lunch, DInner',
-},
-{
-  id: '5',
-  title: 'Chicken Parmesan',
-  rating: '8.9',
-  description: '@ PAR Dining Hall\nThursday, Dinner',
-},
-];*/
-
 const Item = ({ id, title, rating }) => (
   <View style={styles.item}>
     <Text style={styles.title}>{id}</Text>
@@ -88,7 +55,6 @@ const FavoritesScreen = () => {
               <Icon name="close" size={24} color="black" />
             </TouchableOpacity>
             <Text style={styles.modalText}>How to use this screen:</Text>
-            {/* Your instructions here */}
             <Text style={styles.instructionsText}>
               Here are some instructions on how to use the favorites feature...
             </Text>

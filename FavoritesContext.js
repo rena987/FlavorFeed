@@ -8,7 +8,7 @@ export const FavoritesProvider = ({ children }) => {
   const addFavorite = (item) => {
     setFavorites((currentFavorites) => [
       ...currentFavorites,
-      { id: String(currentFavorites.length + 1), title: item.title }, // Ensure the id is unique.
+      { id: String(currentFavorites.length + 1), title: item.title },
     ]);
   };
 

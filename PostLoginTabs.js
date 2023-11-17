@@ -3,7 +3,7 @@ import { FlatListComponent, Text, View, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation
+import { useNavigation } from '@react-navigation/native';
 
 import Home from './Home';
 import FavoritesScreen from './FavoritesScreen';
@@ -47,9 +47,9 @@ const PostLoginTabs = () => {
                         </TouchableOpacity>
                     ),
                     headerTitle: "Your Activity",
-                    headerTitleAlign: 'center', // Align the header title to the center
+                    headerTitleAlign: 'center',
                     headerStyle: {
-                        backgroundColor: '#ddd', // Set your desired color for the header background
+                        backgroundColor: '#ddd', 
                     },
                 }} />
             <Tab.Screen 
@@ -62,9 +62,9 @@ const PostLoginTabs = () => {
                         </TouchableOpacity>
                     ),
                     headerTitle: "Your Favorites",
-                    headerTitleAlign: 'center', // Align the header title to the center
+                    headerTitleAlign: 'center', 
                     headerStyle: {
-                        backgroundColor: '#ddd', // Set your desired color for the header background
+                        backgroundColor: '#ddd', 
                     },
                 }}
             />
