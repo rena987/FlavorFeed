@@ -21,18 +21,15 @@ const Home = () => {
     navigation.navigate('Profile');
   };
 
-  const navigateToIkenberryScreen = () => {
-    navigation.navigate('57 North');
-  };
-
   const navigateToCaffinatorScreen = () => {
     navigation.navigate('Caffeinator');
   };
 
 
-    const navigateToIkenberryScreen = () => {
-      navigation.navigate('57 North');
-    };
+  const navigateToIkenberryScreen = () => {
+    navigation.navigate('57 North');
+  };
+  
   return (
     <View style={styles.container}>
       <View style={styles.header}>

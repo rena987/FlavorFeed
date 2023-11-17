@@ -8,9 +8,7 @@ import ProfileScreen from './ProfileScreen';
 import PostLoginTabs from './PostLoginTabs';
 import CaffinatorScreen from './Caffinator';
 import Ikenberry57Screen from './Ikenberry57Screen';
-import Ikenberry57Screen from './Ikenberry57Screen';
 import ReviewsScreen from './reviews';
-import CaffinatorScreen from './Caffinator';
 
 const Stack = createStackNavigator();
 
