@@ -29,6 +29,10 @@ const Home = () => {
     navigation.navigate('Caffeinator');
   };
 
+
+    const navigateToIkenberryScreen = () => {
+      navigation.navigate('57 North');
+    };
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -49,7 +53,9 @@ const Home = () => {
         <ScrollView style={styles.scrollView}>
           {diningOptions.map((option) => (
             <TouchableOpacity
+              
               key={option.id}
+              
               style={styles.listItem}
               onPress={() => {
                 if (option.name === '57 North at Ikenberry') {
