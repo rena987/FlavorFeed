@@ -78,10 +78,10 @@ const Ikenberry57Screen = () => {
           </TouchableOpacity>
 
           {/* Question Mark Icon for "See Reviews" */}
-        <TouchableOpacity style={styles.seeReviewsIcon} onPress={navigateToReviews}>
-          <Icon name="help-circle" size={30} color="black" />
-          <Text style={styles.seeReviewsText}>See Reviews</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.seeReviewsButton} onPress={navigateToReviews}>
+            <Icon name="help-circle" size={30} color="black" style={styles.seeReviewsIcon} />
+            <Text style={styles.seeReviewsText}>See Reviews</Text>
+            </TouchableOpacity>
         </View>
 
         {/* Horizontal Line */}
