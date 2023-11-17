@@ -6,10 +6,10 @@ import { FontAwesome } from '@expo/vector-icons';
 const LoginScreen = ({ navigation }) => {
   const handleLoginPress = () => {
     // TODO: Validate credentials
-    navigation.navigate('Home'); // Navigate to the Home screen after pressing the Login button
+    navigation.navigate('PostLoginTabs'); // Navigate to the Home screen after pressing the Login button
     navigation.reset({
         index: 0,
-        routes: [{ name: 'Home' }],
+        routes: [{ name: 'PostLoginTabs' }],
       });
   };
 
