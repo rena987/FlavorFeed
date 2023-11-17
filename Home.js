@@ -2,7 +2,7 @@
 import React from 'react';
 import { ScrollView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation
+import { useNavigation } from '@react-navigation/native';
 
 const diningOptions = [
   { id: 1, name: '57 North at Ikenberry', servingTime: 'Serving till 10PM' },
@@ -15,65 +15,71 @@ const diningOptions = [
 ];
 
 const Home = () => {
-  
-    const navigation = useNavigation(); // Hook for navigation
-  
-    const navigateToProfile = () => {
-      navigation.navigate('Profile'); // Navigate to Profile screen when icon is pressed
-    };
-    const navigateToIkenberryScreen = () => {
-      navigation.navigate('Ikenberry');
-    };
+  const navigation = useNavigation();
 
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerTitle}>Residence Hall Dining</Text>
-          <View style={styles.secondPartHeader}>
-            <Text style={styles.headerDate}>Friday, November 17</Text>
-            <View style={styles.rightPartOfSecondHeader}>
-              <TouchableOpacity onPress={navigateToProfile} style={styles.profileButton}>
-                <Icon name="account-circle-outline" size={30} style={styles.profileIcon} />
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.profileButton}>
-                <Icon name="filter-outline" size={30} style={styles.profileIcon} />
-              </TouchableOpacity>
-            </View>
+  const navigateToProfile = () => {
+    navigation.navigate('Profile');
+  };
+
+  const navigateToIkenberryScreen = () => {
+    navigation.navigate('57 North');
+  };
+
+  const navigateToCaffinatorScreen = () => {
+    navigation.navigate('Caffeinator');
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Residence Hall Dining</Text>
+        <View style={styles.secondPartHeader}>
+          <Text style={styles.headerDate}>Friday, November 17</Text>
+          <View style={styles.rightPartOfSecondHeader}>
+            <TouchableOpacity onPress={navigateToProfile} style={styles.profileButton}>
+              <Icon name="account-circle-outline" size={30} style={styles.profileIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.profileButton}>
+              <Icon name="filter-outline" size={30} style={styles.profileIcon} />
+            </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.listOfDiningHalls}>
-          <ScrollView style={styles.scrollView}>
-            {diningOptions.map((option) => (
-              <TouchableOpacity
-                key={option.id}
-                style={styles.listItem}
-                onPress={
-                  option.name === '57 North at Ikenberry'
-                    ? navigateToIkenberryScreen
-                    : null
-                }
-              >
-                <Icon name="silverware" size={24} style={styles.listIcon} />
-                <View style={styles.listTextContainer}>
-                  <Text style={styles.listItemTitle}>{option.name}</Text>
-                  <View style={styles.servingTime}>
-                    <Icon name="clock-outline" size={24} style={styles.clockIcon} />
-                    <Text style={styles.listItemSubtitle}>{option.servingTime}</Text>
-                  </View>
-                </View>
-                <Icon name="chevron-right" size={24} />
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
-        </View>
-        <View style={styles.footer}>
-          <Icon name="home-outline" size={24} />
-          <Icon name="chart-timeline-variant" size={24} />
-          <Icon name="heart-outline" size={24} />
-        </View>
       </View>
-    );
-  };
+      <View style={styles.listOfDiningHalls}>
+        <ScrollView style={styles.scrollView}>
+          {diningOptions.map((option) => (
+            <TouchableOpacity
+              key={option.id}
+              style={styles.listItem}
+              onPress={() => {
+                if (option.name === '57 North at Ikenberry') {
+                  navigateToIkenberryScreen();
+                } else if (option.name === 'Caffeinator at Ikenberry') {
+                  navigateToCaffinatorScreen();
+                }
+              }}
+            >
+              <Icon name="silverware" size={24} style={styles.listIcon} />
+              <View style={styles.listTextContainer}>
+                <Text style={styles.listItemTitle}>{option.name}</Text>
+                <View style={styles.servingTime}>
+                  <Icon name="clock-outline" size={24} style={styles.clockIcon} />
+                  <Text style={styles.listItemSubtitle}>{option.servingTime}</Text>
+                </View>
+              </View>
+              <Icon name="chevron-right" size={24} />
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
+      <View style={styles.footer}>
+        <Icon name="home-outline" size={24} />
+        <Icon name="chart-timeline-variant" size={24} />
+        <Icon name="heart-outline" size={24} />
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   profileButton: {

@@ -7,6 +7,7 @@ import Login from './Login'
 import ProfileScreen from './ProfileScreen'
 import Ikenberry57Screen from './Ikenberry57Screen';
 import ReviewsScreen from './reviews';
+import CaffinatorScreen from './Caffinator';
 
 const Stack = createStackNavigator();
 
@@ -17,8 +18,9 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
-        <Stack.Screen name="Ikenberry" component={Ikenberry57Screen} />
+        <Stack.Screen name="57 North" component={Ikenberry57Screen} />
         <Stack.Screen name="Reviews" component={ReviewsScreen} />
+        <Stack.Screen name="Caffeinator" component={CaffinatorScreen} />
 
       </Stack.Navigator>
     </NavigationContainer>
