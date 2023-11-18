@@ -1,12 +1,20 @@
 // Ikenberry57Screen.js
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native'; 
+import FavoritesContext from './FavoritesContext';
 
 const Ikenberry57Screen = () => {
     const [selectedTab, setSelectedTab] = useState('Breakfast');
     const navigation = useNavigation();
+    const { addFavorite } = useContext(FavoritesContext);
+    const handleFavoritePress = (foodText) => {
+      const newItem = {
+        title: foodText,
+      };
+      addFavorite(newItem);
+    }
   
     const handleTabPress = (tab) => {
       setSelectedTab(tab);
@@ -34,7 +42,7 @@ const Ikenberry57Screen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Image at the top */}
+      {/* Image at the top*/}
       <Image source={require('C:/Users/isabe/465_project/57.jpg')} style={styles.image} />
 
       <View style={styles.contentContainer}>
@@ -126,14 +134,14 @@ const Ikenberry57Screen = () => {
           <ScrollView style={styles.foodList}>
             <View style={styles.foodItem}>
               <Text style={styles.foodText}>Eggs Benedict</Text>
-              <TouchableOpacity onPress={() => console.log('Favorite Eggs Benedict')}>
+              <TouchableOpacity onPress={() => handleFavoritePress('Eggs Benedict')}>
                 <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
               </TouchableOpacity>
             </View>
 
             <View style={styles.foodItem}>
               <Text style={styles.foodText}>Caesar Salad</Text>
-              <TouchableOpacity onPress={() => console.log('Favorite Caesar Salad')}>
+              <TouchableOpacity onPress={() => handleFavoritePress('Caesar Salad')}>
                 <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
               </TouchableOpacity>
             </View>
@@ -150,35 +158,35 @@ const Ikenberry57Screen = () => {
           {/* Menu Items */}
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Pizza</Text>
-            <TouchableOpacity onPress={() => console.log('Favorite Pizza')}>
+            <TouchableOpacity onPress={() => handleFavoritePress('Pizza')}>
               <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
             </TouchableOpacity>
           </View>
 
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Roast Beef</Text>
-            <TouchableOpacity onPress={() => console.log('Favorite Roast Beef')}>
+            <TouchableOpacity onPress={() => handleFavoritePress('Roast Beef')}>
               <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
             </TouchableOpacity>
           </View>
 
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Veggie Dog (V)</Text>
-            <TouchableOpacity onPress={() => console.log('Favorite Hot Dog')}>
+            <TouchableOpacity onPress={() => handleFavoritePress('Hot Dog')}>
               <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
             </TouchableOpacity>
           </View>
 
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Fries</Text>
-            <TouchableOpacity onPress={() => console.log('Favorite Fries')}>
+            <TouchableOpacity onPress={() => handleFavoritePress('Fries')}>
               <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
             </TouchableOpacity>
           </View>
 
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Nachos</Text>
-            <TouchableOpacity onPress={() => console.log('Favorite Nachos')}>
+            <TouchableOpacity onPress={() => handleFavoritePress('Nachos')}>
               <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
             </TouchableOpacity>
           </View>
