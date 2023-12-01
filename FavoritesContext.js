@@ -8,7 +8,7 @@ export const FavoritesProvider = ({ children }) => {
   const addFavorite = (item) => {
     setFavorites((currentFavorites) => [
       ...currentFavorites,
-      { id: String(currentFavorites.length + 1), title: item.title },
+      { id: String(currentFavorites.length + 1), title: item.title, hall: item.hall },
     ]);
   };
 

@@ -36,7 +36,7 @@ const FavoritesScreen = () => {
     <View style={styles.container}>
       <FlatList
         data={favorites}
-        renderItem={({ item }) => <Item id={item.id} title={item.title} />}
+        renderItem={({ item }) => <Item id={item.id} title={`${item.title} from ${item.hall}`}/>}
         keyExtractor={item => item.id}
         style={styles.favoritesScreen}
       />

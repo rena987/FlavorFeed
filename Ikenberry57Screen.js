@@ -12,6 +12,7 @@ const Ikenberry57Screen = () => {
     const handleFavoritePress = (foodText) => {
       const newItem = {
         title: foodText,
+        hall: "Ike 57",
       };
       addFavorite(newItem);
     }
@@ -42,8 +43,8 @@ const Ikenberry57Screen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Image at the top*/}
-      <Image source={require('/Users/ananyaagarwal_1/FlavorFeed/57.jpg')} style={styles.image} />
+      {/* Image at the top
+      <Image source={require('/Users/ananyaagarwal_1/FlavorFeed/57.jpg')} style={styles.image} />*/}
 
       <View style={styles.contentContainer}>
         {/* Title with Check-In Box */}

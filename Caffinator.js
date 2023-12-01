@@ -1,12 +1,21 @@
 // CaffinatorScreen.js
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native'; 
+import FavoritesContext from './FavoritesContext';
 
 const CaffinatorScreen = () => {
   const [selectedTab, setSelectedTab] = useState('Breakfast');
   const navigation = useNavigation();
+  const { addFavorite } = useContext(FavoritesContext);
+  const handleFavoritePress = (foodText) => {
+    const newItem = {
+      title: foodText,
+      hall: "Caffinator",
+    };
+    addFavorite(newItem);
+  }
 
   const handleTabPress = (tab) => {
     setSelectedTab(tab);
@@ -34,8 +43,8 @@ const CaffinatorScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Image at the top */}
-      <Image source={require('/Users/ananyaagarwal_1/FlavorFeed/Caffinator.js')} style={styles.image} />
+      {/* Image at the top 
+      <Image source={require('/Users/ananyaagarwal_1/FlavorFeed/Caffinator.js')} style={styles.image} />*/}
 
       <View style={styles.contentContainer}>
         {/* Title with Check-In Box */}
@@ -126,14 +135,14 @@ const CaffinatorScreen = () => {
           <ScrollView style={styles.foodList}>
             <View style={styles.foodItem}>
               <Text style={styles.foodText}>Blueberry Scone</Text>
-              <TouchableOpacity onPress={() => console.log('Favorite Food Item')}>
+              <TouchableOpacity onPress={() => handleFavoritePress('Blueberry Scone')}>
                 <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
               </TouchableOpacity>
             </View>
 
             <View style={styles.foodItem}>
               <Text style={styles.foodText}>Sausage, Egg, and Cheese Sandwich</Text>
-              <TouchableOpacity onPress={() => console.log('Favorite Second Food Item')}>
+              <TouchableOpacity onPress={() => handleFavoritePress('Sausage, Egg, and Cheese Sandwich')}>
                 <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
               </TouchableOpacity>
             </View>
@@ -150,38 +159,37 @@ const CaffinatorScreen = () => {
           {/* Menu Items */}
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Tomato Pesto Sandwich (V)</Text>
-            <TouchableOpacity onPress={() => console.log('Favorite Menu Item')}>
+            <TouchableOpacity onPress={() => handleFavoritePress('Tomato Pesto Sandwich')}>
               <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
             </TouchableOpacity>
           </View>
 
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Sausage, Egg, & Cheese Sandwich</Text>
-            <TouchableOpacity onPress={() => console.log('Favorite Second Menu Item')}>
+            <TouchableOpacity onPress={() => handleFavoritePress('Sausage, Egg, & Cheese Sandwich')}>
               <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
             </TouchableOpacity>
           </View>
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Turkey and Cheese Sandwich</Text>
-            <TouchableOpacity onPress={() => console.log('Favorite Menu Item')}>
+            <TouchableOpacity onPress={() => handleFavoritePress('Turkey and Cheese Sandwich')}>
               <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
             </TouchableOpacity>
           </View>
 
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Avocado Toast (V)</Text>
-            <TouchableOpacity onPress={() => console.log('Favorite Second Menu Item')}>
+            <TouchableOpacity onPress={() => handleFavoritePress('Avocado Toast')}>
               <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
             </TouchableOpacity>
           </View>
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Fruit Smoothie</Text>
-            <TouchableOpacity onPress={() => console.log('Favorite Menu Item')}>
+            <TouchableOpacity onPress={() => handleFavoritePress('Fruit Smoothie')}>
               <Icon name="heart-outline" size={20} color="pink" style={styles.favoriteIcon} />
             </TouchableOpacity>
           </View>
 
-          {/* Add more menu items similarly */}
         </View>
       </View>
     </View>
