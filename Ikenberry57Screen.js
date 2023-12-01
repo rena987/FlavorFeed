@@ -193,9 +193,9 @@ const Ikenberry57Screen = () => {
 
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Veggie Dog (V)</Text>
-            <TouchableOpacity onPress={() => handleFavoritePress('Hot Dog')}>
+            <TouchableOpacity onPress={() => handleFavoritePress('Veggie Dog')}>
                 <Icon 
-                  name={isFavorite({ title: 'Hot Dog', hall: "Ike 57" }) ? "heart" : "heart-outline"} 
+                  name={isFavorite({ title: 'Veggie Dog', hall: "Ike 57" }) ? "heart" : "heart-outline"} 
                   size={20} 
                   color="pink" 
                   style={styles.favoriteIcon} />

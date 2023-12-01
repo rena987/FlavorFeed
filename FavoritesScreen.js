@@ -5,19 +5,21 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
 import FavoritesContext from './FavoritesContext';
 
-const Item = ({ id, title, rating }) => (
+const Item = ({ id, title, rating, onRemove }) => (
   <View style={styles.item}>
     <Text style={styles.title}>{id}</Text>
     <Text style={styles.title}>{title}</Text>
     <View style={styles.ratingContainer}>
       <Text style={styles.rating}>{rating}</Text>
-      <Icon name="star" size={20} color="#FFD700" />
     </View>
+    <TouchableOpacity onPress={onRemove} style={styles.removeButton}>
+      <Icon name="close" size={24} color="black" />
+    </TouchableOpacity>
   </View>
 );
 
 const FavoritesScreen = () => {
-  const { favorites } = useContext(FavoritesContext);
+  const { favorites, removeFavorite } = useContext(FavoritesContext);
 
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
@@ -36,7 +38,8 @@ const FavoritesScreen = () => {
     <View style={styles.container}>
       <FlatList
         data={favorites}
-        renderItem={({ item }) => <Item id={item.id} title={`${item.title} from ${item.hall}`}/>}
+        renderItem={({ item }) => <Item id={item.id} title={`${item.title} from ${item.hall}`} 
+      onRemove={() => removeFavorite(item)}/>}
         keyExtractor={item => item.id}
         style={styles.favoritesScreen}
       />

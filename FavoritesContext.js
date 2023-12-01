@@ -13,7 +13,7 @@ export const FavoritesProvider = ({ children }) => {
   };
   const isFavorite = (item) => favorites.some(favorite => favorite.title === item.title && favorite.hall === item.hall);
   const removeFavorite = (item) => {
-    setFavorites(favorites.filter(favorite => favorite.title !== item.title || favorite.hall !== item.hall));
+    setFavorites(favorites.filter(favorite => favorite.title !== item.title || favorite.hall !== item.hall || favorite.id !== item.id));
   };
 
   return (
