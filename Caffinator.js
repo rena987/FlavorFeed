@@ -35,8 +35,7 @@ const CaffinatorScreen = () => {
   return (
     <View style={styles.container}>
       {/* Image at the top */}
-      {/*<Image source={require('C:/Users/isabe/465_project/caffinator.jpg')} style={styles.image} /> */}
-      <Image source={require('./assets/caffinator.jpg')} style={styles.image} />
+      <Image source={require('C:/Users/isabe/465_project/caffinator.jpg')} style={styles.image} />
 
       <View style={styles.contentContainer}>
         {/* Title with Check-In Box */}

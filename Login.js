@@ -15,6 +15,8 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Image source={require('/Users/ananyaagarwal_1/FlavorFeed/logo.jpg')} style={styles.logo}/>
+
       <Text style={styles.title}>FlavorFeed</Text>
       <TextInput style={styles.input} placeholder="Username" />
       <TextInput style={styles.input} placeholder="Password" secureTextEntry />
@@ -32,6 +34,7 @@ const LoginScreen = ({ navigation }) => {
         <Text style={styles.forgotPassword}>forgot password?</Text>
       </TouchableOpacity>
     </View>
+     
   );
 };
 
@@ -83,6 +86,12 @@ const styles = StyleSheet.create({
   forgotPassword: {
     color: 'blue',
     marginBottom: 20, // Add space below the forgot password link
+  },
+  logo: {
+    width: 150, // Set the width of your logo
+    height: 150, // Set the height of your logo
+    resizeMode: 'contain', // This ensures the aspect ratio is kept without distortion
+    marginBottom: 20, // Optional: adds some space below your logo
   },
 });
 

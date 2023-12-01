@@ -43,7 +43,7 @@ const Ikenberry57Screen = () => {
   return (
     <View style={styles.container}>
       {/* Image at the top*/}
-      <Image source={require('C:/Users/isabe/465_project/57.jpg')} style={styles.image} />
+      <Image source={require('/Users/ananyaagarwal_1/FlavorFeed/57.jpg')} style={styles.image} />
 
       <View style={styles.contentContainer}>
         {/* Title with Check-In Box */}
