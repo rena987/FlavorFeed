@@ -11,9 +11,13 @@ export const FavoritesProvider = ({ children }) => {
       { id: String(currentFavorites.length + 1), title: item.title, hall: item.hall },
     ]);
   };
+  const isFavorite = (item) => favorites.some(favorite => favorite.title === item.title && favorite.hall === item.hall);
+  const removeFavorite = (item) => {
+    setFavorites(favorites.filter(favorite => favorite.title !== item.title || favorite.hall !== item.hall));
+  };
 
   return (
-    <FavoritesContext.Provider value={{ favorites, addFavorite }}>
+    <FavoritesContext.Provider value={{ favorites, addFavorite, isFavorite, removeFavorite }}>
       {children}
     </FavoritesContext.Provider>
   );
