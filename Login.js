@@ -6,7 +6,7 @@ import { FontAwesome } from '@expo/vector-icons';
 const LoginScreen = ({ navigation }) => {
   const handleLoginPress = () => {
     // TODO: Validate credentials
-    navigation.navigate('PostLoginTabs'); // Navigate to the Home screen after pressing the Login button
+    navigation.navigate('PostLoginTabs');
     navigation.reset({
         index: 0,
         routes: [{ name: 'PostLoginTabs' }],
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     width: '100%',
-    backgroundColor: 'black', // Adjust the color to match your design
+    backgroundColor: 'black', 
     padding: 15,
     borderRadius: 5,
     alignItems: 'center',

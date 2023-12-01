@@ -120,7 +120,6 @@ const styles = StyleSheet.create({
   instructionsText: {
     fontSize: 16,
     textAlign: 'center',
-    // Add other styling as needed
   },
 });
 

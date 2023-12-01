@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native';
 
 const ReviewsScreen = () => {
+  const navigation = useNavigation();
+
   // Dummy data for example reviews with timestamps
   const reviews = [
     { rating: 5, text: 'Excellent food and service! Highly recommended.', timestamp: '30 minutes ago' },
@@ -23,6 +26,11 @@ const ReviewsScreen = () => {
       <Icon key={`empty-${index}`} name="star-outline" size={20} color="gold" style={styles.starIcon} />
     ));
     return [...filledStars, ...emptyStars];
+  };
+
+  // Function to handle the "Explore More Dining Halls" button press
+  const handleExploreMorePress = () => {
+    navigation.navigate('Home'); // Update with the correct screen name
   };
 
   return (
@@ -59,6 +67,17 @@ const ReviewsScreen = () => {
           </View>
         ))}
       </View>
+
+      {/* Explore More Dining Halls Button */}
+      <TouchableOpacity
+        style={styles.exploreMoreButton}
+        onPress={handleExploreMorePress}
+      >
+        <Text style={styles.exploreMoreButtonText}>
+          Explore More Dining Halls
+          <Icon name="home" size={20} color="#007FFF" style={styles.homeIcon} />
+        </Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 };
@@ -132,9 +151,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'black',
   },
+  exploreMoreButton: {
+    alignItems: 'center',
+    marginTop: 10,
+    backgroundColor: 'transparent',
+  },
+  exploreMoreButtonText: {
+    fontSize: 18,
+    color: '#007FFF',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  homeIcon: {
+    marginRight: 30,
+  },
 });
 
 export default ReviewsScreen;
-
-
-

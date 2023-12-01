@@ -6,12 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 
 const diningOptions = [
   { id: 1, name: '57 North at Ikenberry', servingTime: 'Serving till 10PM' },
-  { id: 2, name: 'Caffeinator at Ikenberry', servingTime: 'Serving till 10PM' },
+  { id: 2, name: 'Caffeinator at Ikenberry', servingTime: 'Serving till 4PM' },
   { id: 3, name: 'Field of Greens at Lincoln/Allen', servingTime: 'Serving till 10PM' },
   { id: 4, name: 'ISR Dining Centre', servingTime: 'Serving till 10PM' },
-  { id: 5, name: 'PAR Dining Centre', servingTime: 'Serving till 10PM' },
+  { id: 5, name: 'PAR Dining Centre', servingTime: 'Serving till 12AM' },
   { id: 6, name: 'LAR Dining Centre', servingTime: 'Serving till 10PM' },
-  { id: 7, name: 'FAR Dining Centre', servingTime: 'Serving till 10PM' },
+  { id: 7, name: 'FAR Dining Centre', servingTime: 'Serving till 12AM' },
 ];
 
 const Home = () => {
@@ -25,23 +25,31 @@ const Home = () => {
     navigation.navigate('Caffeinator');
   };
 
-
   const navigateToIkenberryScreen = () => {
     navigation.navigate('57 North');
   };
-  
+
+  const navigateToFavorites = () => {
+    navigation.navigate('Favorites');
+  };
+
+  const navigateToReviews = () => {
+    navigation.navigate('Reviews');
+  };
+
+  const navigateToAddReview = () => {
+    navigation.navigate('Add Review');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Residence Hall Dining</Text>
+        <Text style={styles.headerTitle}>Residence Dining Halls</Text>
         <View style={styles.secondPartHeader}>
-          <Text style={styles.headerDate}>Friday, November 17</Text>
+          <Text style={styles.headerDate}>Friday, December 1</Text>
           <View style={styles.rightPartOfSecondHeader}>
             <TouchableOpacity onPress={navigateToProfile} style={styles.profileButton}>
               <Icon name="account-circle-outline" size={30} style={styles.profileIcon} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.profileButton}>
-              <Icon name="filter-outline" size={30} style={styles.profileIcon} />
             </TouchableOpacity>
           </View>
         </View>
@@ -50,9 +58,7 @@ const Home = () => {
         <ScrollView style={styles.scrollView}>
           {diningOptions.map((option) => (
             <TouchableOpacity
-              
               key={option.id}
-              
               style={styles.listItem}
               onPress={() => {
                 if (option.name === '57 North at Ikenberry') {
@@ -62,7 +68,7 @@ const Home = () => {
                 }
               }}
             >
-              <Icon name="silverware" size={24} style={styles.listIcon} />
+              <Icon name="silverware" size={24} color="green" style={styles.listIcon} />
               <View style={styles.listTextContainer}>
                 <Text style={styles.listItemTitle}>{option.name}</Text>
                 <View style={styles.servingTime}>
@@ -75,21 +81,26 @@ const Home = () => {
           ))}
         </ScrollView>
       </View>
-
     </View>
   );
 };
 
+
 const styles = StyleSheet.create({
   profileButton: {
+    marginLeft: 100,
+    left: 83,
+  },
+  filterButton: {
     alignItems: 'right',
-    left: 20,
+    left: 130,
   },
   container: {
     flex: 1,
     paddingTop: 20,
     flexDirection: 'column',
   },
+  
   header: {
     paddingVertical: 20,
     paddingHorizontal: 20,
@@ -149,13 +160,6 @@ const styles = StyleSheet.create({
     paddingTop: 2,
     fontSize: 14,
     color: '#666',
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 20,
-    borderTopWidth: 1,
-    borderTopColor: '#ddd',
   },
 });
 
