@@ -15,7 +15,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('/Users/ananyaagarwal_1/FlavorFeed/logo.jpg')} style={styles.logo}/>
+      <Image source={require('/Users/isabe/465_project/logo.jpg')} style={styles.logo}/>
 
       <Text style={styles.title}>FlavorFeed</Text>
       <TextInput style={styles.input} placeholder="Username" />
