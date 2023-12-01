@@ -10,35 +10,35 @@ const activitiesData = [
     user: 'Serena Behera',
     action: 'reviewed',
     target: 'PAR Dining Hall',
-    timestamp: '2023-03-01T12:00:00.000Z'
+    timestamp: '2 min ago'
   },
   {
     id: '2',
     user: 'Ananya Agarwal',
     action: 'reviewed',
     target: 'IKE Dining Hall',
-    timestamp: '2023-03-01T13:00:00.000Z'
+    timestamp: '15 min ago'
   },
   {
     id: '3',
     user: 'Ananya Agarwal',
     action: 'reviewed',
     target: 'ISR Dining Hall',
-    timestamp: '2023-03-01T14:00:00.000Z'
+    timestamp: '20 min ago'
   },
   {
     id: '4',
     user: 'Isabel Alvar',
     action: 'favorited',
     target: 'Salad @ LAR Dining Hall',
-    timestamp: '2023-03-01T15:00:00.000Z'
+    timestamp: '1 hour ago'
   },
   {
     id: '5',
     user: 'Isabel Alvar',
     action: 'reviewed',
     target: 'LAR Dining Hall',
-    timestamp: '2023-03-01T16:00:00.000Z'
+    timestamp: '2 hours ago'
   },
 ];
 
@@ -56,7 +56,7 @@ const formatDate = (dateString) => {
             <Text style={styles.activityText}>
                 {item.user} <Text style={{ fontWeight: 'normal' }}>{item.action}</Text> {item.target}
             </Text>
-            <Text style={styles.timestamp}>{formatDate(item.timestamp)}</Text>
+            <Text style={styles.timestamp}>{item.timestamp}</Text>
         </View>
     </View>
   );
@@ -86,6 +86,9 @@ const styles = StyleSheet.create({
   },
   profileIcon: {
     marginRight: 10
+  },
+  timestamp: {
+    marginTop: 6,
   }
 });
 
