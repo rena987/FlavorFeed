@@ -28,6 +28,7 @@ const Ikenberry57Screen = () => {
     const navigateToReviews = () => {
       navigation.navigate('Reviews');
     };
+    
 
   // Function to get the current date in the "Month Day, Year" format
   const getCurrentDate = () => {
@@ -51,26 +52,20 @@ const Ikenberry57Screen = () => {
       <Image source={require('/Users/ananyaagarwal_1/FlavorFeed/57.jpg')} style={styles.image} />*/}
 
       <View style={styles.contentContainer}>
-        {/* Title with Check-In Box */}
         <View style={styles.titleContainer}>
           <Text style={styles.title}>Ikenberry 57 North</Text>
           
           {/* Check-In Box */}
           <TouchableOpacity style={styles.checkInBox} onPress={() => console.log('Check-in')}>
-            {/* You can customize the check-in box content here */}
           </TouchableOpacity>
           <Text style={styles.checkInBoxText}>Check In</Text>
         </View>
 
-        {/* Wait Time */}
         <Text style={styles.waitTime}>Wait Time: 5 minutes</Text>
-
-        {/* Address */}
         <View style={styles.addressContainer}>
           <Text style={styles.address}>Address: 301 E. Gregory Drive, Champaign</Text>
         </View>
 
-        {/* Icons and Text in One Row */}
         <View style={styles.iconsRow}>
           {/* Google Maps Icon and Text */}
           <TouchableOpacity
@@ -82,13 +77,13 @@ const Ikenberry57Screen = () => {
           </TouchableOpacity>
 
           {/* Review Button */}
-          <TouchableOpacity
-            style={styles.reviewButton}
-            onPress={() => console.log('Navigate to reviews')}
-          >
-            <Icon name="star-outline" size={30} color="gold" />
-            <Text style={styles.reviewButtonText}>Add Review</Text>
-          </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.reviewButton}
+          onPress={() => navigation.navigate('Add Review')} 
+        >
+          <Icon name="star-outline" size={30} color="gold" />
+          <Text style={styles.reviewButtonText}>Add Review</Text>
+        </TouchableOpacity>
 
           {/* Question Mark Icon for "See Reviews" */}
           <TouchableOpacity style={styles.seeReviewsButton} onPress={navigateToReviews}>
@@ -97,10 +92,8 @@ const Ikenberry57Screen = () => {
             </TouchableOpacity>
         </View>
 
-        {/* Horizontal Line */}
         <View style={styles.horizontalLine} />
 
-        {/* Date Title with Arrows */}
         <View style={styles.dateTitleContainer}>
           <TouchableOpacity onPress={handlePreviousDay}>
             <Icon name="chevron-left" size={20} color="black" style={styles.arrowIcon} />
@@ -111,9 +104,7 @@ const Ikenberry57Screen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Tabs and Food Bar */}
         <View style={styles.tabsAndFoodBar}>
-          {/* Rectangular Box with Tabs */}
           <View style={styles.tabsContainer}>
             <TouchableOpacity
               style={[styles.tab, selectedTab === 'Breakfast' && styles.selectedTab]}
@@ -135,7 +126,6 @@ const Ikenberry57Screen = () => {
             </TouchableOpacity>
           </View>
 
-          {/* Food List */}
           <ScrollView style={styles.foodList}>
             <View style={styles.foodItem}>
               <Text style={styles.foodText}>Eggs Benedict</Text>
@@ -159,16 +149,11 @@ const Ikenberry57Screen = () => {
               </TouchableOpacity>
             </View>
 
-            {/* Add more food items similarly */}
           </ScrollView>
         </View>
 
-        {/* Menu Title */}
         <Text style={styles.menuTitle}>Menu</Text>
-
-        {/* Rectangular Box for Menu Items */}
         <View style={styles.menuContainer}>
-          {/* Menu Items */}
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Pizza</Text>
             <TouchableOpacity onPress={() => handleFavoritePress('Pizza')}>
