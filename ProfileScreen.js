@@ -1,15 +1,30 @@
 // screens/ProfileScreen.js
-import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import React ,{ useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView ,FlatList} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
+  const [showFriendsList, setShowFriendsList] = useState(false);
+  const friends = [
+    { id: '1', name: 'Alice Smith' },
+    { id: '2', name: 'Bob Johnson' },
+    { id: '3', name: 'Charlie Brown' },
+    { id: '4', name: 'Dana White' },
+    // ... more friend objects
+  ];
 
   const navigateToOtherUserProfile = () => {
     navigation.navigate('OtherUserProfile'); // Replace with the actual screen name for other users
   };
+
+  const renderFriend = ({ item }) => (
+    <TouchableOpacity onPress={() => console.log('Navigate to friend profile')}>
+      <Text style={styles.friendItem}>{item.name}</Text>
+    </TouchableOpacity>
+  );
+
 
   return (
     <ScrollView style={styles.container}>
@@ -21,7 +36,16 @@ const ProfileScreen = () => {
       <View style={styles.profileSection}>
         <Icon name="account-circle-outline" size={80} style={styles.profileIcon} />
         <Text style={styles.username}>Your Username</Text>
-        <Text style={styles.friendsCount}>13 Friends</Text>
+        <TouchableOpacity onPress={() => setShowFriendsList(!showFriendsList)}>
+          <Text style={styles.friendsCount}>4 Friends</Text>
+        </TouchableOpacity>
+        {showFriendsList && (
+          <FlatList
+            data={friends}
+            renderItem={renderFriend}
+            keyExtractor={(item) => item.id.toString()}
+          />
+        )}
       </View>
       <View style={styles.preferencesSection}>
         <Text style={styles.preferencesTitle}>Preferences</Text>
@@ -62,6 +86,12 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 22,
     fontWeight: 'bold',
+  },
+  friendItem: {
+    // Add styles for friend list items
+    fontSize: 16,
+    padding: 10,
+    color: 'blue',
   },
   friendsCount: {
     fontSize: 16,
