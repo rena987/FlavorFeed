@@ -47,30 +47,23 @@ const CaffinatorScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Image at the top 
-      <Image source={require('/Users/ananyaagarwal_1/FlavorFeed/Caffinator.js')} style={styles.image} />*/}
+      {<Image source={require('/Users/isabe/465_project/assets/caffinator.jpg')} style={styles.image} />}
 
       <View style={styles.contentContainer}>
-        {/* Title with Check-In Box */}
         <View style={styles.titleContainer}>
           <Text style={styles.title}>The Caffeinator</Text>
           
           {/* Check-In Box */}
           <TouchableOpacity style={styles.checkInBox} onPress={() => console.log('Check-in')}>
-            {/* You can customize the check-in box content here */}
           </TouchableOpacity>
           <Text style={styles.checkInBoxText}>Check In</Text>
         </View>
 
-        {/* Wait Time */}
         <Text style={styles.waitTime}>Wait Time: 15 minutes</Text>
-
-        {/* Address */}
         <View style={styles.addressContainer}>
           <Text style={styles.address}>Address: 301 E. Gregory Drive, Champaign (2nd Floor)</Text>
         </View>
 
-        {/* Icons and Text in One Row */}
         <View style={styles.iconsRow}>
           {/* Google Maps Icon and Text */}
           <TouchableOpacity
@@ -90,17 +83,14 @@ const CaffinatorScreen = () => {
             <Text style={styles.reviewButtonText}>Add Review</Text>
           </TouchableOpacity>
 
-          {/* Question Mark Icon for "See Reviews" */}
           <TouchableOpacity style={styles.seeReviewsButton} onPress={navigateToReviews}>
             <Icon name="help-circle" size={30} color="black" style={styles.seeReviewsIcon} />
             <Text style={styles.seeReviewsText}>See Reviews</Text>
           </TouchableOpacity>
         </View>
 
-        {/* Horizontal Line */}
         <View style={styles.horizontalLine} />
 
-        {/* Date Title with Arrows */}
         <View style={styles.dateTitleContainer}>
           <TouchableOpacity onPress={handlePreviousDay}>
             <Icon name="chevron-left" size={20} color="black" style={styles.arrowIcon} />
@@ -111,9 +101,7 @@ const CaffinatorScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Tabs and Food Bar */}
         <View style={styles.tabsAndFoodBar}>
-          {/* Rectangular Box with Tabs */}
           <View style={styles.tabsContainer}>
             <TouchableOpacity
               style={[styles.tab, selectedTab === 'Breakfast' && styles.selectedTab]}
@@ -159,14 +147,11 @@ const CaffinatorScreen = () => {
               </TouchableOpacity>
             </View>
 
-            {/* Add more food items similarly */}
           </ScrollView>
         </View>
 
-        {/* Menu Title */}
         <Text style={styles.menuTitle}>Menu</Text>
 
-        {/* Rectangular Box for Menu Items */}
         <View style={styles.menuContainer}>
           {/* Menu Items */}
           <View style={styles.menuItem}>

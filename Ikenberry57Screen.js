@@ -48,14 +48,13 @@ const Ikenberry57Screen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Image at the top
-      <Image source={require('/Users/ananyaagarwal_1/FlavorFeed/57.jpg')} style={styles.image} />*/}
+      {
+      <Image source={require('/Users/isabe/465_project/assets/57.jpg')} style={styles.image} />}
 
       <View style={styles.contentContainer}>
         <View style={styles.titleContainer}>
           <Text style={styles.title}>Ikenberry 57 North</Text>
           
-          {/* Check-In Box */}
           <TouchableOpacity style={styles.checkInBox} onPress={() => console.log('Check-in')}>
           </TouchableOpacity>
           <Text style={styles.checkInBoxText}>Check In</Text>
